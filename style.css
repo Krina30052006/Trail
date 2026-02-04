@@ -1,147 +1,65 @@
+/* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 20px;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  padding: 2rem;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
 }
 
-h1 {
-    text-align: center;
-    color: white;
-    margin-bottom: 40px;
-}
-
-/* CSS Grid Gallery Layout */
+/* Grid Layout */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    transition: transform 0.3s ease;
-    transform-origin: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: transform 0.5s ease;
+/* Card */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease, filter 0.3s ease;
+/* Image */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-/* Hover Effect - Image Zoom */
-.gallery-item:hover img {
-    transform: scale(1.0);
-    filter: brightness(0.8);
-}
-
-/* Hover Effect - Gallery Item Lift */
-.gallery-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Overlay Effect */
+/* Overlay */
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.gallery-item:hover .overlay {
-    opacity: 1;
+/* Hover Effects */
+.card:hover img {
+  transform: scale(1.1);
 }
 
-.overlay .text {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .overlay .text {
-    transform: translateY(0);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-    
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        padding: 10px;
-    }
-    
-    .overlay .text {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-    
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .overlay .text {
-        font-size: 1rem;
-    }
-}
-
-/* Additional Hover Effects - Border Animation */
-.gallery-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 3px solid transparent;
-    border-radius: 10px;
-    transition: border-color 0.3s ease;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.gallery-item:hover::before {
-    border-color: rgba(255, 255, 255, 0.8);
+.card:hover .overlay {
+  opacity: 1;
 }
