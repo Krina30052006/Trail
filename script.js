@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
   const cards = document.querySelectorAll(".gallery .card img");
   const lightbox = document.getElementById("lightbox");
