@@ -1,36 +1,61 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const cards = document.querySelectorAll(".gallery .card img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.getElementById("lightbox-close");
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+}
 
-  // Debug
-  console.log("Gallery images found:", cards.length);
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
 
-  cards.forEach((img) => {
-    img.addEventListener("click", function() {
-      console.log("Image clicked:", this.src);
-      lightboxImg.src = this.src;
-      lightbox.style.display = "flex";
-    });
-  });
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
 
-  closeBtn.addEventListener("click", function() {
-    console.log("Close button clicked");
-    lightbox.style.display = "none";
-  });
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  lightbox.addEventListener("click", function(e) {
-    if (e.target === lightbox) {
-      console.log("Clicked outside image");
-      lightbox.style.display = "none";
-    }
-  });
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
 
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-      console.log("Escape key pressed");
-      lightbox.style.display = "none";
-    }
-  });
-});
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 3rem;
+  cursor: pointer;
+  color: white;
+}
