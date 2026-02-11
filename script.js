@@ -1,32 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const galleryImages = document.querySelectorAll(".gallery .card img");
+  const cards = document.querySelectorAll(".gallery .card img");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.getElementById("lightbox-close");
 
-  // Open lightbox when clicking any image
-  galleryImages.forEach(img => {
+  // Debug
+  console.log("Gallery images found:", cards.length);
+
+  cards.forEach((img) => {
     img.addEventListener("click", function() {
-      lightbox.style.display = "flex";
+      console.log("Image clicked:", this.src);
       lightboxImg.src = this.src;
+      lightbox.style.display = "flex";
     });
   });
 
-  // Close when clicking the close button
   closeBtn.addEventListener("click", function() {
+    console.log("Close button clicked");
     lightbox.style.display = "none";
   });
 
-  // Close when clicking outside the image
   lightbox.addEventListener("click", function(e) {
     if (e.target === lightbox) {
+      console.log("Clicked outside image");
       lightbox.style.display = "none";
     }
   });
 
-  // Close with ESC key
   document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") {
+      console.log("Escape key pressed");
       lightbox.style.display = "none";
     }
   });
