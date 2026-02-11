@@ -1,73 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Interactive Photo Gallery</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <h1 class="title">Photo Gallery</h1>
 
   <div class="gallery">
-    <div class="card">
-      <img src="https://picsum.photos/id/1015/600/400" alt="Mountains">
-      <div class="overlay">Mountains</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1025/600/400" alt="Dog">
-      <div class="overlay">Dog</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1035/600/400" alt="River">
-      <div class="overlay">River</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1045/600/400" alt="Forest">
-      <div class="overlay">Forest</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1042/600/400" alt="Art">
-      <div class="overlay">Art</div>
-    </div>
-    
-    <div class="card">
-      <img src="https://picsum.photos/id/167/600/400" alt="Leaves">
-      <div class="overlay">Leaves</div>
-    </div>
-    
-    <div class="card">
-      <img src="https://picsum.photos/id/1033/600/400" alt="Architecture">
-      <div class="overlay">Architecture</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1024/600/400" alt="Bird">
-      <div class="overlay">Bird</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1023/600/400" alt="Adventure">
-      <div class="overlay">Adventure</div>
-    </div>
-
-    <div class="card">
-      <img src="https://picsum.photos/id/1047/600/400" alt="City">
-      <div class="overlay">City</div>
-    </div>
+    <div class="card"><img src="https://picsum.photos/id/1015/600/400" alt="Mountains"></div>
+    <div class="card"><img src="https://picsum.photos/id/1025/600/400" alt="Dog"></div>
+    <div class="card"><img src="https://picsum.photos/id/1035/600/400" alt="River"></div>
+    <div class="card"><img src="https://picsum.photos/id/1045/600/400" alt="Forest"></div>
+    <div class="card"><img src="https://picsum.photos/id/1042/600/400" alt="Art"></div>
+    <div class="card"><img src="https://picsum.photos/id/167/600/400" alt="Leaves"></div>
+    <div class="card"><img src="https://picsum.photos/id/1033/600/400" alt="Architecture"></div>
+    <div class="card"><img src="https://picsum.photos/id/1024/600/400" alt="Bird"></div>
+    <div class="card"><img src="https://picsum.photos/id/1023/600/400" alt="Adventure"></div>
+    <div class="card"><img src="https://picsum.photos/id/1047/600/400" alt="City"></div>
   </div>
 
-  <!-- Lightbox -->
+  <!-- Lightbox setup -->
   <div class="lightbox" id="lightbox">
     <span class="close" id="lightbox-close">&times;</span>
-    <img class="lightbox-img" id="lightbox-img" />
+    <img class="lightbox-img" id="lightbox-img" alt="Preview">
   </div>
 
+  <!-- Script must be here -->
   <script src="script.js"></script>
 </body>
 </html>
