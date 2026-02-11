@@ -1,100 +1,36 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll(".gallery .card img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementById("lightbox-close");
 
-body {
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
-  padding: 2rem;
-}
+  // Debug
+  console.log("Gallery images found:", cards.length);
 
-/* Title */
-.title {
-  text-align: center;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
-  font-size: 2.5rem;
-}
+  cards.forEach((img) => {
+    img.addEventListener("click", function() {
+      console.log("Image clicked:", this.src);
+      lightboxImg.src = this.src;
+      lightbox.style.display = "flex";
+    });
+  });
 
-/* Grid Layout */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
+  closeBtn.addEventListener("click", function() {
+    console.log("Close button clicked");
+    lightbox.style.display = "none";
+  });
 
-/* Card */
-.card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  lightbox.addEventListener("click", function(e) {
+    if (e.target === lightbox) {
+      console.log("Clicked outside image");
+      lightbox.style.display = "none";
+    }
+  });
 
-/* Hover lift effect */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Image */
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.card:hover img {
-  transform: scale(1.1);
-}
-
-/* Overlay */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.card:hover .overlay {
-  opacity: 1;
-}
-
-/* Lightbox */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.lightbox-img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-}
-
-.lightbox .close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-}
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      console.log("Escape key pressed");
+      lightbox.style.display = "none";
+    }
+  });
+});
